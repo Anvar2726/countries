@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/country.min.css">
+    <title>Document</title>
+</head>
+<body class="body">
+    <header class="header">
+        <div class="container header__container">
+            <h1>Where in the world?</h1>
+            <button>
+                <img src="/images/dark-mode.svg" alt="dark-mode">
+                Dark Mode
+            </button>
+        </div>
+    </header>
+    <main>
+        <section class="country">
+            <div class="container">
+                <a href="./index.html" class="country__btn">
+                    Back
+                </a>
+                <div class="country__wrapper">
+                    <div>
+                        <img class="country-img" src="" alt="flag-belgium" width="590" height="440">
+                    </div>
+                    <div>
+                        <div class="country__info">
+                            <div>
+                                <h1 class="country-name"></h1>
+                                <p>Native Name: <span class="native-name"></span></p>
+                                <p>Population: <span class="population"></span></p>
+                                <p>Region: <span class="region"></span></p>
+                                <p>Sub Region: <span class="sub-region"></span></p>
+                                <p>Capital: <span class="capital"></span></p>
+                            </div>
+                            <div>
+                                <p>Top Level Domain: <span class="domain"></span></p>
+                                <p>Currencies: <span class="currencies"></span></p>
+                                <p>Languages: <span class="languages"></span></p>
+                            </div>
+                        </div>
+                        <div class="country__inner">
+                            <p>Border Countries: </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/js/const.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/country.js"></script>
+</body>
+</html>

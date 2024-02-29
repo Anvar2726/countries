@@ -1,0 +1,103 @@
+@use "../global";
+.header {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: #ffff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+    &__container {
+        padding: 24px 0;
+        display: flex;
+        justify-content: space-between;
+
+        h1 {
+            color: #111517;
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 32px;
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            gap: 8px;
+            background-color: transparent;
+        }
+    }
+}
+.country{
+    margin-top: 84px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    &__btn{
+        padding: 8px;
+        border-radius: 4px;
+        border: none;
+        color: black;
+        box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.05);
+        background-color: #fff;
+    }
+
+    &__wrapper{
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        img{
+            margin-top: 20px;
+            width: 100%;
+            max-height: 440px;
+            object-fit: cover;
+        }
+
+        h1{
+            color: #111517;
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 43.65px;
+        }
+        p{
+            color: #111517;
+            font-weight: 600;
+            line-height: 32px;
+
+            span{
+                color: #111517;
+                font-weight: 400;
+                line-height: 32px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 876px){
+        &__wrapper{
+           flex-direction: column;
+           align-items: start;
+        }       
+    }
+
+    &__info{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__inner{
+        display: flex;
+
+        button{
+            border: none;
+            background-color: #fff;
+            padding: 8px;
+            box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.11);
+            margin-left: 8px;
+        }
+    }
+}
