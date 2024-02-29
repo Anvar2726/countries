@@ -3,7 +3,18 @@ const countriesQuantity = document.querySelector('.country-quantity');
 const searchInput = document.querySelector('#search');
 const pagination = document.querySelector('.pagination');
 
-let query = new URLSearchParams(location.search)
+let query = new URLSearchParams(location.search);
+const loader = document.querySelector('.loaderr');
+loader.innerHTML = `
+    <div class="showbox">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+            <p>Loading...</p>
+        </div>
+    </div>
+`
 
 let search = query.get('search') || '';
 let activePage = +query.get('page') || 1;
@@ -39,6 +50,8 @@ async function getCountries() {
     }
 
     pagination.innerHTML += `<button onclick="getPage('+')" ${activePage === pages ? "disabled" : ""} class="pagination-btn">Next</button>`
+
+    loader.innerHTML = ''
 }
 
 getCountries();

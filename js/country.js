@@ -13,11 +13,21 @@ const borderCountries = document.querySelector('.country__inner')
 let query = new URLSearchParams(location.search)
 
 let countryNameQuery = query.get('name');
+const loader = document.querySelector('.loaderr');
+loader.innerHTML = `
+    <div class="showbox">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+            <p>Loading...</p>
+        </div>
+    </div>
+`
 
 async function getCountryInfo(){
     let {data , total} = await getData(`${ENDPOINT}name/${countryNameQuery}`)
     data.forEach(el =>{
-        console.log(el);
         countryFlag.src = el.flags.png;
         countryName.textContent = el.name.common;
         nativeName.textContent = el.name.official;
@@ -37,11 +47,11 @@ async function getCountryInfo(){
             console.log(lang);
         }
         languages.textContent = el.languages.lang;
-        // console.log(el.borders);
         for(let i = 0; i < el.borders.length; i++){
             borderCountries.innerHTML += `<button>${el.borders[i]}</button>`
         }
     })
+    loader.innerHTML = '';
 }
 
 getCountryInfo();
