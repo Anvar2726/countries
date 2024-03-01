@@ -41,12 +41,7 @@ async function getCountryInfo(){
           currs = key;
         }
         currencies.textContent = el.currencies[currs].name;
-        let lang
-        for (let key in el.languages) {
-            lang = key
-            console.log(lang);
-        }
-        languages.textContent = el.languages.lang;
+        languages.textContent = Object.values(el.languages)[0];
         for(let i = 0; i < el.borders.length; i++){
             borderCountries.innerHTML += `<button>${el.borders[i]}</button>`
         }

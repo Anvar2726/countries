@@ -25,6 +25,7 @@ async function getCountries() {
     let countriesData, countriesTotal;
 
     if (search) {
+        countriesRow.innerHTML = "";
         const { data, total } = await getData(`${ENDPOINT}name/${search}?page=${activePage}&limit=${LIMIT}`);
         countriesData = data;
         countriesTotal = total;
@@ -33,6 +34,7 @@ async function getCountries() {
             countriesRow.innerHTML += getCountry(element)
         });
     } else {
+        countriesRow.innerHTML = "";
         const { data, total } = await getData(`${ENDPOINT}all?page=${activePage}&limit=${LIMIT}`);
         countriesData = data;
         countriesTotal = total;
@@ -57,7 +59,17 @@ async function getCountries() {
 getCountries();
 
 searchInput.addEventListener('keyup', function () {
-    search = this.value
+    search = this.value;
+    loader.innerHTML = `
+        <div class="showbox">
+            <div class="loader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                </svg>
+                <p>Loading...</p>
+            </div>
+        </div>
+    `
     getCountries();
     activePage = 1;
     history.pushState({}, "", `?search=${search}&page=${activePage}&limit=${LIMIT}`)
@@ -71,7 +83,16 @@ function getPage(i) {
     } else {
         activePage = i;
     }
-    console.log(i);
+    loader.innerHTML = `
+        <div class="showbox">
+            <div class="loader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                </svg>
+                <p>Loading...</p>
+            </div>
+        </div>
+    `
     getCountries();
     history.pushState({}, "", `?search=${search}&page=${activePage}&limit=${LIMIT}`)
 }
